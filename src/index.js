@@ -1,17 +1,33 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDom from 'react-dom';
+// importar estilos
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// componente usando clases
+// class Game extends React.Component {
+//   render(){
+//     return (<div>Game</div>);
+//   }
+// };
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// componenete usando funciones
+// function Game() {
+//   return <h2>Hi, I am also a Car!</h2>;
+// }
+const Square = () => {
+  return ( 
+    <div style={{backgroundColor: 'gold',margin:10,padding:20}}>Square</div>
+  );
+};
+
+const Board = () => {
+  return (
+    <div style={{backgroundColor: 'skyblue',margin:10,padding:10}}>Board<Square/></div>
+  );
+};
+
+const Game = () => {
+  return (<div style={{backgroundColor: 'salmon',margin:10,padding:10}}> Game<Board/></div>);
+};
+
+ReactDom.render(<Game />,document.getElementById('root'));
