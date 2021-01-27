@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDom from 'react-dom';
 // importar estilos
 import './index.css';
@@ -15,9 +15,12 @@ import './index.css';
 //   return <h2>Hi, I am also a Car!</h2>;
 // }
 const Square = (props) => {
+  const [value, setValue] = useState(null);
+
+
   return ( 
-    <button className="square" onClick={() => alert(`square ${props.value} clicked`)}>
-      {props.value}
+    <button className="square" onClick={() => setValue('X')}>
+      {value}
     </button>
   );
 };
@@ -25,7 +28,7 @@ const Square = (props) => {
 const Board = () => {
   const renderSquare = (i) =>{
     return ( 
-      <Square value={i}/>
+      <Square/>
     );
   };
 
