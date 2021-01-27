@@ -15,20 +15,31 @@ import './index.css';
 //   return <h2>Hi, I am also a Car!</h2>;
 // }
 const Square = (props) => {
-  const [value, setValue] = useState(null);
-
-
   return ( 
-    <button className="square" onClick={() => setValue('X')}>
-      {value}
+    <button className="square" onClick={props.onClickEvent}>
+      {props.value}
     </button>
   );
 };
 
 const Board = () => {
+  const initialSquares = Array(9).fill(null);
+
+  const [squares,setSquares] = useState(initialSquares);
+
+  const handleClickEvent = (i) =>{
+    // make a copy if squares state array
+    const newSquares = [...squares];
+    // mutate the copy setting the i-th element to X
+    newSquares[i] = 'X';
+    // call the setSquares function iwth the mutated copy
+    setSquares(newSquares);
+  };
   const renderSquare = (i) =>{
     return ( 
-      <Square/>
+      <Square value={squares[i]}
+        onClickEvent={()=>handleClickEvent(i)}
+      />
     );
   };
 
