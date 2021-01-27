@@ -16,18 +16,28 @@ import './index.css';
 // }
 const Square = () => {
   return ( 
-    <div style={{backgroundColor: 'gold',margin:10,padding:20}}>Square</div>
+    <div className="square">X</div>
   );
 };
 
 const Board = () => {
   return (
-    <div style={{backgroundColor: 'skyblue',margin:10,padding:10}}>Board<Square/></div>
+    <div style={{backgroundColor: 'skyblue',margin:10,padding:10}}>Board
+      <div className="board-row">
+        <Square/><Square/><Square/>
+      </div>
+      <div className="board-row">
+        <Square/><Square/><Square/>
+      </div>
+      <div className="board-row">
+        <Square/><Square/><Square/>
+      </div>
+    </div>
   );
 };
 
 const Game = () => {
-  return (<div style={{backgroundColor: 'salmon',margin:10,padding:10}}> Game<Board/></div>);
+  return (<div className="game"> Game<Board/></div>);
 };
 
 ReactDom.render(<Game />,document.getElementById('root'));
