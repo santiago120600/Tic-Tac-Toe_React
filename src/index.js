@@ -14,23 +14,31 @@ import './index.css';
 // function Game() {
 //   return <h2>Hi, I am also a Car!</h2>;
 // }
-const Square = () => {
+const Square = (props) => {
   return ( 
-    <div className="square">X</div>
+    <div className="square">
+      {props.value}
+    </div>
   );
 };
 
 const Board = () => {
+  const renderSquare = (i) =>{
+    return ( 
+      <Square value={i}/>
+    );
+  };
+
   return (
     <div style={{backgroundColor: 'skyblue',margin:10,padding:10}}>Board
       <div className="board-row">
-        <Square/><Square/><Square/>
+        {renderSquare(1)}{renderSquare(2)}{renderSquare(3)}
       </div>
       <div className="board-row">
-        <Square/><Square/><Square/>
+        {renderSquare(4)}{renderSquare(5)}{renderSquare(6)}
       </div>
       <div className="board-row">
-        <Square/><Square/><Square/>
+        {renderSquare(7)}{renderSquare(8)}{renderSquare(9)}
       </div>
     </div>
   );
