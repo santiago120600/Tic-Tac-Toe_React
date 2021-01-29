@@ -31,15 +31,14 @@ const Board = () => {
     );
   };
 
-  calculateWinner(squares);
-  // const winner = calculateWinner(squares);
-  // const status = winner ?
-  // `winner: ${winner}` :
-  // `Next player: ${xIsNext ? 'X' : 'O'}`;
+  const winner = calculateWinner(squares);
+  const status = winner ?
+  `winner: ${winner}` :
+  `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
     <div style={{backgroundColor: 'skyblue',margin:10,padding:10}}>
-      {/* <div className="status">{status}</div> */}
+      <div className="status">{status}</div>
       <div className="board-row">
         {renderSquare(0)}{renderSquare(1)}{renderSquare(2)}
       </div>
@@ -77,7 +76,8 @@ function calculateWinner(squares){
   let p3 = winning_row[2]
   
   if (squares[p1] && squares[p1]==squares[p2] && squares[p2]==squares[p3] && squares[p3]==squares[p1]) {
-    alert(`winner! player  has won the game`)
+    // alert(`winner! player  ${squares[p1]} has won the game`);
+    return squares[p1];
   }
 
  }
